@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <title>Adidas</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <title>Addie's Breakfast Club</title>
 </head>
 
 <body>
-    <h1>Addie's </br>Breakfast Club</h1>
+    <h1>Addie's </br>Breakfast Club </br></h1>
     <!--<h2 class="menu-title">Menu</h2>-->
     <div id="menuGrid" class="menu-grid"></div>
 
@@ -57,11 +59,34 @@
         <button id="done-btn">Done</button>
     </div>
 
+    <div id="name-popup" class="popup hidden">
+        <div class="popup-content">
+            <button id="close-name-popup" class="close-x">×</button>
+            <h2>Enter your name</h2>
+            <input type="text" id="customer-name-input" placeholder="Your name" />
+            <button id="submit-name" class="close-btn">Submit</button>
+        </div>
+    </div>
+
     <div id="popup" class="popup hidden">
         <div class="popup-content">
-            <h2>Receipt</h2>
-            <p>This is your receipt window (placeholder).</p>
-            <button id="close-popup">Close</button>
+            <button id="close-popup" class="close-x">×</button>
+            <h2 class="popup-title">Addie's </br> Breakfast Club</h2>
+            <p>Receipt Slip</p>
+            <div class="receipt-header">
+                <p>
+                    Name: <span id="receipt-name"></span>
+                    Date: <span id="receipt-date"></span>
+                </p>
+            </div>
+
+            <div id="receipt-details"></div>
+            <div class="receipt-footer">
+                <p id="processing-text"></p>
+                <p class="thank-you">Thank you! -Addie</p>
+            </div>
+
+            <button id="close-btn" class="close-btn">Close</button>
         </div>
     </div>
 

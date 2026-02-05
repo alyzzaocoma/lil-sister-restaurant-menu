@@ -1,0 +1,242 @@
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  margin: 30px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  gap: 0;
+}
+
+.menu-card {
+  position: relative;
+  width: 300px;
+  height: 300px; 
+  perspective: 1000px; 
+  /*overflow: hidden;*/
+  border: 1px solid #ccc;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+}
+.card-inner {
+  position: relative;
+  flex:1;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.menu-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/*FOR THE FRONT*/
+.card-front{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+/*IMAGE*/
+.card-front .menu-image {
+  width: 100%;
+  height: 75%;   
+  padding: none; margin: none;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  border: none;  
+}
+/*FOOD NAME & PRICE*/
+.card-info {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-info h3 {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.card-info .price {
+  font-weight: bold;
+  color: #333;
+}
+
+/* FOR THE BACK */
+.card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  transform: rotateY(180deg);
+
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu-description{
+  font-size: 1em;
+}
+
+/* QUANTITY & CANCEL BUTTON*/
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.add-btn {
+  background: rgb(171, 109, 188);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.add-btn:hover {
+  background: rgb(222, 151, 242);
+}
+.quantity-controls.hidden { display: none; }
+.quantity-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  gap: 12px;          
+}
+
+.qty-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.qty-row button {
+  background: transparent;
+  color: rgb(139, 138, 138);
+  border: 1px solid rgb(139, 138, 138);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qty-row button:hover { 
+  color: rgb(66, 65, 65);
+  border: 1px solid rgb(66, 65, 65);
+}
+
+.qty-row .quantity {
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 24px;
+  text-align: center;
+}
+
+.cancel-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.cancel-btn:hover { background: #444; }
+
+/*CART TAB ON THE BOTTOM-LEFT*/
+.cart-tab {
+  position: fixed;
+  flex:1;
+  bottom: 0;
+  left: 0;
+  min-width: 100px;
+  max-width: 300px;
+  background: #333;
+  color: #fff;
+  padding: 12px;
+  border-top-right-radius: 8px;
+  font-size: 0.95em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1000;
+}
+
+.cart-tab .cart-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-tab .cart-label {
+  font-weight: bold;
+}
+
+.cart-tab .cart-value {
+  font-size: 1.1em;
+}
+
+#done-btn {
+  margin-top: 10px;
+  background: rgb(171, 109, 188);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#done-btn:hover {
+  background: rgb(222, 151, 242);
+}
+
+/*RECEIPT POP-UP WINDOW*/
+.popup.hidden { display: none; }
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+
+/*TO HIDE ADD BUTTON WHEN CLICKED*/
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Adidas</title>
+</head>
+
+<body>
+    <h1>Addie's </br>Breakfast Club</h1>
+    <!--<h2 class="menu-title">Menu</h2>-->
+    <div id="menuGrid" class="menu-grid"></div>
+
+    <template id="menuCardTemplate">
+        <div class="menu-card">
+            <div class="card-inner">
+                <!-- CARD FRONT -->
+                <div class="card-front">
+                    <img class="menu-image" src="" alt="">
+                    <div class="card-info">
+                        <h3 class="menu-name"></h3>
+                        <span class="price"></span>
+                    </div>
+                </div>
+                <!-- CARD BACK -->
+                <div class="card-back">
+                    <p class="menu-description"></p>
+                    <div class="actions">
+                        <button class="add-btn">Add</button>
+
+                        <div class="quantity-controls hidden">
+                            <div class="qty-row">
+                                <button class="decrease-btn">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase-btn">+</button>
+                            </div>
+                            <button class="cancel-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div class="cart-tab">
+        <div class="cart-info">
+            <span class="cart-label">Items:</span>
+            <span class="cart-value" id="cart-quantity">0</span>
+        </div>
+        <div class="cart-info">
+            <span class="cart-label">Total:</span>
+            <span class="cart-value" id="cart-total">₱0</span>
+        </div>
+        <button id="done-btn">Done</button>
+    </div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Receipt</h2>
+            <p>This is your receipt window (placeholder).</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
